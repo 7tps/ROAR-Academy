@@ -20,8 +20,6 @@ for x in range(page_number):
 
     word_list = [line.split() for line in page_text if 'CHAPTER' not in line and not any(char.isdigit() for char in line)]
 
-    print(word_list)
-
     for sublist in word_list:
         for word in sublist:
             if word in frequency_table:
@@ -29,4 +27,4 @@ for x in range(page_number):
             else:
                 frequency_table[word] = 1
 
-    print(frequency_table)
+print(frequency_table)
