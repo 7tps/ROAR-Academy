@@ -10,7 +10,7 @@ arr = np.array([
 ])
 
 pink = arr[1:2, 2:4]
-green = arr[3:5, 1:3]
+green = arr[2:4, 4:6]
 blue = arr[:, 1:2]
 orange = arr[2:4, ::2]
 
