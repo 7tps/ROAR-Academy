@@ -62,10 +62,12 @@ trainingY = labels[randomOrder[0:100], :]
 testingX = samples[randomOrder[100:200], :]
 testingY = labels[randomOrder[100:200], :]
 
-model = Sequential()
-model.add(Dense(4, input_shape=(2,), activation='sigmoid', use_bias=True))
-# model.add(Dense(4, input_shape=(2,), activation='relu', use_bias=True))
-model.add(Dense(2, activation='softmax' ))
+model = Sequential([
+    Dense(16, input_shape=(2,), activation='relu'),
+    Dense(16, activation='relu'),
+    Dense(16, activation='relu'),
+    Dense(2, activation='softmax')
+])
 model.compile(loss='mean_squared_error', optimizer='sgd', metrics=['binary_accuracy'])
 
 model.fit(trainingX, trainingY, epochs=500, batch_size=10, verbose=1, validation_split=0.2)
