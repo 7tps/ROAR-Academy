@@ -1,0 +1,18 @@
+import gym
+import numpy as np
+
+env = gym.make('CartPole-v1')
+
+for episode in range(10):
+    observation = env.reset()
+    i, p = 0, 0
+    for t in range(500):
+        env.render()
+        action = int(np.dot([0.1, 0, 0], [observation[2], i := i + observation[2]*0.02, (observation[2] - p)/0.02]) > 0)
+        p = observation[2]
+        observation, reward, done, _ = env.step(action)
+        if done:
+            print(f"Episode {episode + 1} finished after {t + 1} steps")
+            break
+
+env.close()
